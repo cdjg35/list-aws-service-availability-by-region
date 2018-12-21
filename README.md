@@ -46,6 +46,17 @@ optional arguments:
                         The service to search the results for
 ```
 
+## Cli Parameters
+
+* -h: Show the help file (see above for example).
+* -i: Make the search for a service case insensitive.
+* -e: Exclude a comma separated list of regions. **(Cannot be used at the same time as -s)**
+* -E: Exclude a comma separated list of services. **(Cannot be used at the same time as -S)**
+* -n: Do not show the results table at the end (used for development debugging mostly)
+* -r: Use region names instead of country names on the display table as headings.
+* -s: Search for a comma separated list of regions. **(Cannot be used at the same time as -e)**
+* -S: Search for a comma separated list of services. **(Cannot be used at the same time as -E)**
+
 ## Example output
 
 This is an example of the first 3 regions.
@@ -367,6 +378,17 @@ This is an example of the output when using -S (search service) - again limited 
 +---------------------+-------------------+------+--------+---------------------+----------+
 |       AWS WAF       |         Y         |  Y   |   Y    |          Y          |    N     |
 +---------------------+-------------------+------+--------+---------------------+----------+
+```
+
+This example searches for a specif service (using -i for case insensitive), and lists the output for only 3 named regions.
+```
+./list-aws-service-availability-by-region.py -s eu-west-1,eu-west-2,eu-west-3 -S waf -i
++---------+---------+--------+-------+
+|         | Ireland | London | Paris |
++---------+---------+--------+-------+
+| AWS WAF |    Y    |   N    |   N   |
++---------+---------+--------+-------+
+
 ```
 ## ToDo
 
