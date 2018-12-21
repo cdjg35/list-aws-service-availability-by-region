@@ -347,6 +347,6 @@ This is an example of the first 5 regions.
 
 - [ ] Search by region
 - [ ] Exclude by region
-- [ ] Search by service
-- [ ] Exclude by service
+- [X] Search by service
+- [X] Exclude by service
 - [ ] Make search and exclude accept comma separted lists.

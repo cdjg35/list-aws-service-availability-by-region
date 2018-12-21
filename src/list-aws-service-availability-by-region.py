@@ -77,10 +77,15 @@ def main(cmdline=None):
         print("Valid regions:- \n%s" % get_valid_regions())
         return 1
 
+    if args.search_service is not None:
+        args.search_service = args.search_service.strip().split(',')
+    if args.exclude_service is not None:
+        args.exclude_service = args.exclude_service.strip().split(',')
+
     contents = get_page_contents(region_table_url)
     regions, services, results = process_page_contents(contents)
 
-    display_results(regions, services, results, args.search_region, args.exclude_region)
+    display_results(regions, services, results, args.search_region, args.exclude_region, args.search_service, args.exclude_service)
 
 
 # -------------------------------------------------------------------------------- #
@@ -93,8 +98,10 @@ def make_parser():
     parser = argparse.ArgumentParser(description='List AWS Service Availability by Region')
 
     parser.add_argument('-e', '--exclude-region', type=str, help='The region to exclude from the results', default=None)
+    parser.add_argument('-E', '--exclude-service', type=str, help='The service to exclude from the results', default=None)
     parser.add_argument('-n', '--no-results', help='Do not show the final table of results', action='store_true')
     parser.add_argument('-s', '--search-region', type=str, help='The region to search the results for', default=None)
+    parser.add_argument('-S', '--search-service', type=str, help='The service to search the results for', default=None)
     return parser
 
 
@@ -254,14 +261,33 @@ def get_rows_by_service_wrapper(service, tables):
 # -------------------------------------------------------------------------------- #
 # -------------------------------------------------------------------------------- #
 
-def display_results(regions, services, results, search=None, exclude=None):
+def display_results(regions, services, results, search_region=None, exclude_region=None, search_service=None, exclude_service=None):
     table = PrettyTable()
 
     table.field_names = regions
 
     for service in services:
-        row = get_rows_by_service_wrapper(service, results)
-        table.add_row(row)
+        include = False
+
+        #
+        # Check it is in the set we want to see (all or search subset)
+        #
+        if search_service is not None:
+            if service in search_service:
+                include = True
+        else:
+            include = True
+
+        #
+        # Now exclude ones we don't want to see
+        #
+        if exclude_service is not None:
+            if service in exclude_service:
+                include = False
+
+        if include:
+            row = get_rows_by_service_wrapper(service, results)
+            table.add_row(row)
 
     table.hrules = True
     print(table)
