@@ -1,0 +1,60 @@
+sudo: required
+matrix:
+  include:
+  - language: python
+    python: 2.7
+    os: linux
+    before_install:
+    - mkdir travis
+    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
+    - pip install --upgrade setuptools
+    install:
+    - "./travis/pycodestyle/install.sh"
+    script:
+    - "./travis/pycodestyle/build.sh"
+  - language: python
+    python: 3.4
+    os: linux
+    before_install:
+    - mkdir travis
+    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
+    - pip install --upgrade setuptools
+    install:
+    - "./travis/pycodestyle/install.sh"
+    script:
+    - "./travis/pycodestyle/build.sh"
+  - language: python
+    python: 3.5
+    os: linux
+    before_install:
+    - mkdir travis
+    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
+    - pip install --upgrade setuptools
+    install:
+    - "./travis/pycodestyle/install.sh"
+    script:
+    - "./travis/pycodestyle/build.sh"
+  - language: python
+    python: 3.6
+    os: linux
+    before_install:
+    - mkdir travis
+    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
+    - pip install --upgrade setuptools
+    install:
+    - "./travis/pycodestyle/install.sh"
+    script:
+    - "./travis/pycodestyle/build.sh"
+  - language: ruby
+    rvm: 2.2
+    before_install:
+    - mkdir travis
+    - git clone https://github.com/TravisToolbox/awesomebot-travis.git travis/awesomebot
+    install:
+    - "./travis/awesomebot/install.sh"
+    script:
+    - "./travis/awesomebot/build.sh"
+notifications:
+  email: false
+  slack:
+    secure: sF6GKC+rbvWXpEnt2Ww+74BJinX6OPhWdAOWyrrMm5lvIoIpm4bp6L1EqWwrsITR3/SSepmexuvIR3tHDXmallNfMHA7CJl+nBPyOAI+s5jYGZ5mrPoDEc/w4c57yHxx6oYa28SXwAnx/bghCaDRuEQzqj/Ah/DTjiAQX7ofKzInl4pcaTVyX+J1JasPIrBbTAOw/mxHAy3E+alaFoonJscpMTtAyqRIye5EELy3VhAFAbe5VwvZwN1IamzoWnUC/j/6z9KJJG4qE51N0mOPd/OY6snEgCkQNidkhvL+8JdL/y42WM9Vybl5YcCqBbZQcQVTfi9gVw18eg3fHE07WlAMR7W6Z9etrKSY/jnJVGcnydEvbny4OLa2xzccfHmremtvGMdR8OJCIGhprzkB79+bwdSpnIpngHflETKgw4XnhtbNHKUNf+C6lN9OjHpbEWrIAKQdbvkdEAMts02Jy4DjQ5d+hw3hnEJ1ZnEC4V2Pd29jNUy3NGST9wBOPXePafQz6oBWf/P7c19kigt5zjy+K/dnG1CFlGu7K6Od3Qp+foZj77dWq1fQLxHRMwG3dGq2DmzLajyC5scEWNXIfyz2IA1y9KqMYVU9LVdtjIj8iiffA9o219E+w5yZNMmWzR2bx3wUUiHuZBDNvqLN423sOAWXdI0NN85rq9qpyh0=

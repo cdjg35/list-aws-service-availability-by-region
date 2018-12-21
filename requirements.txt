@@ -1,0 +1,5 @@
+pycodestyle
+yaspin==0.14.0
+requests>=2.20.0
+prettytable==0.7.2
+progressbar2==3.39.2
