@@ -21,7 +21,9 @@ A python script to get a list of all services and theie availability per region.
 ```
 
 usage: list-aws-service-availability-by-region.py [-h] [-e EXCLUDE_REGION]
-                                                  [-n] [-s SEARCH_REGION]
+                                                  [-E EXCLUDE_SERVICE] [-n]
+                                                  [-s SEARCH_REGION]
+                                                  [-S SEARCH_SERVICE]
 
 List AWS Service Availability by Region
 
@@ -29,10 +31,13 @@ optional arguments:
   -h, --help            show this help message and exit
   -e EXCLUDE_REGION, --exclude-region EXCLUDE_REGION
                         The region to exclude from the results
+  -E EXCLUDE_SERVICE, --exclude-service EXCLUDE_SERVICE
+                        The service to exclude from the results
   -n, --no-results      Do not show the final table of results
   -s SEARCH_REGION, --search-region SEARCH_REGION
                         The region to search the results for
-
+  -S SEARCH_SERVICE, --search-service SEARCH_SERVICE
+                        The service to search the results for
 ```
 
 ## Example output
