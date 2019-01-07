@@ -5,55 +5,95 @@ matrix:
     python: 2.7
     os: linux
     before_install:
-    - mkdir travis
-    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
-    - pip install --upgrade setuptools
+      - sudo apt-get install figlet
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/bandit-travis.git travis/bandit
+      - git clone https://github.com/TravisToolbox/pur-travis.git travis/pur
+      - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodetyle
+      - pip install --upgrade setuptools
     install:
-    - "./travis/pycodestyle/install.sh"
+      - ./travis/bandit/install.sh
+      - ./travis/pur/install.sh
+      - ./travis/pycodetyle/install.sh
     script:
-    - "./travis/pycodestyle/build.sh"
+      - figlet -c -w 125 -f big Bandit Tests
+      - ./travis/bandit/scan.sh
+      - figlet -c -w 125 -f big Pur Tests
+      - ./travis/pur/scan.sh
+      - figlet -c -w 125 -f big Pycodestyle Tests
+      - ./travis/pycodetyle/scan.sh
   - language: python
     python: 3.4
     os: linux
     before_install:
-    - mkdir travis
-    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
-    - pip install --upgrade setuptools
+      - sudo apt-get install figlet
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/bandit-travis.git travis/bandit
+      - git clone https://github.com/TravisToolbox/pur-travis.git travis/pur
+      - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodetyle
+      - pip install --upgrade setuptools
     install:
-    - "./travis/pycodestyle/install.sh"
+      - ./travis/bandit/install.sh
+      - ./travis/pur/install.sh
+      - ./travis/pycodetyle/install.sh
     script:
-    - "./travis/pycodestyle/build.sh"
+      - figlet -c -w 125 -f big Bandit Tests
+      - ./travis/bandit/scan.sh
+      - figlet -c -w 125 -f big Pur Tests
+      - ./travis/pur/scan.sh
+      - figlet -c -w 125 -f big Pycodestyle Tests
+      - ./travis/pycodetyle/scan.sh
   - language: python
     python: 3.5
     os: linux
     before_install:
-    - mkdir travis
-    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
-    - pip install --upgrade setuptools
+      - sudo apt-get install figlet
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/bandit-travis.git travis/bandit
+      - git clone https://github.com/TravisToolbox/pur-travis.git travis/pur
+      - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodetyle
+      - pip install --upgrade setuptools
     install:
-    - "./travis/pycodestyle/install.sh"
+      - ./travis/bandit/install.sh
+      - ./travis/pur/install.sh
+      - ./travis/pycodetyle/install.sh
     script:
-    - "./travis/pycodestyle/build.sh"
+      - figlet -c -w 125 -f big Bandit Tests
+      - ./travis/bandit/scan.sh
+      - figlet -c -w 125 -f big Pur Tests
+      - ./travis/pur/scan.sh
+      - figlet -c -w 125 -f big Pycodestyle Tests
+      - ./travis/pycodetyle/scan.sh
   - language: python
     python: 3.6
     os: linux
     before_install:
-    - mkdir travis
-    - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodestyle
-    - pip install --upgrade setuptools
+      - sudo apt-get install figlet
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/bandit-travis.git travis/bandit
+      - git clone https://github.com/TravisToolbox/pur-travis.git travis/pur
+      - git clone https://github.com/TravisToolbox/pycodestyle-travis.git travis/pycodetyle
+      - pip install --upgrade setuptools
     install:
-    - "./travis/pycodestyle/install.sh"
+      - ./travis/bandit/install.sh
+      - ./travis/pur/install.sh
+      - ./travis/pycodetyle/install.sh
     script:
-    - "./travis/pycodestyle/build.sh"
+      - figlet -c -w 125 -f big Bandit Tests
+      - ./travis/bandit/scan.sh
+      - figlet -c -w 125 -f big Pur Tests
+      - ./travis/pur/scan.sh
+      - figlet -c -w 125 -f big Pycodestyle Tests
+      - ./travis/pycodetyle/scan.sh
   - language: ruby
     rvm: 2.2
     before_install:
-    - mkdir travis
-    - git clone https://github.com/TravisToolbox/awesomebot-travis.git travis/awesomebot
+      - mkdir travis
+      - git clone https://github.com/TravisToolbox/awesomebot-travis.git travis/awesomebot
     install:
-    - "./travis/awesomebot/install.sh"
+      - ./travis/awesomebot/install.sh
     script:
-    - "./travis/awesomebot/build.sh"
+      - ./travis/awesomebot/scan.sh
 notifications:
   email: false
   slack:
