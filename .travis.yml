@@ -1,7 +1,7 @@
-sudo: required
 matrix:
   include:
   - language: python
+    name: "Bandit, Pur & Pycodestyle (Python 2.7)"
     python: 2.7
     os: linux
     before_install:
@@ -23,6 +23,7 @@ matrix:
       - figlet -c -w 125 -f big Pycodestyle Tests
       - ./travis/pycodetyle/scan.sh
   - language: python
+    name: "Bandit, Pur & Pycodestyle (Python 3.4)"
     python: 3.4
     os: linux
     before_install:
@@ -44,6 +45,7 @@ matrix:
       - figlet -c -w 125 -f big Pycodestyle Tests
       - ./travis/pycodetyle/scan.sh
   - language: python
+    name: "Bandit, Pur & Pycodestyle (Python 3.5)"
     python: 3.5
     os: linux
     before_install:
@@ -65,6 +67,7 @@ matrix:
       - figlet -c -w 125 -f big Pycodestyle Tests
       - ./travis/pycodetyle/scan.sh
   - language: python
+    name: "Bandit, Pur & Pycodestyle (Python 3.6)"
     python: 3.6
     os: linux
     before_install:
@@ -86,7 +89,8 @@ matrix:
       - figlet -c -w 125 -f big Pycodestyle Tests
       - ./travis/pycodetyle/scan.sh
   - language: ruby
-    rvm: 2.2
+    name: "Link Checker (rvm 2.6.1)"
+    rvm: 2.6.1
     before_install:
       - mkdir travis
       - git clone https://github.com/TravisToolbox/awesomebot-travis.git travis/awesomebot
