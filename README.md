@@ -12,6 +12,14 @@ A python script to get a list of all services and their availability per region.
 
 You can selectively include or excludes regions and services from the search result.
 
+## Set Up
+
+python3 -m venv env
+source env/bin/activate
+pip install -r requirements.txt
+pip install lxml
+./src/list-aws-service-availability-by-region.py -s eu-north-1
+
 ## Simple Usage
 
 ```

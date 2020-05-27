@@ -175,7 +175,7 @@ def process_page_contents(contents, use_regions=False):
     countries_per_tab = []
 
     soup = BeautifulSoup(contents, 'lxml')
-    tables = soup.find('div', {'class': 'aws-comp'}).find_all('table')
+    tables = soup.find_all('table')
 
     for table in tables:
         cpt = 0

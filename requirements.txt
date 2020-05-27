@@ -4,3 +4,4 @@ Unidecode==1.0.23
 requests>=2.21.0
 prettytable==0.7.2
 beautifulsoup4==4.7.1
+lxml
